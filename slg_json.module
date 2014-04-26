@@ -1,0 +1,118 @@
+<?php
+
+function slg_json_services_resources() {
+  return array(
+    'slg_json_category' => array(
+      'retrieve' => array(
+        'file' => array('type' => 'inc', 'module' => 'slg_json'),
+        'callback' => 'slg_json_category_retrieve',
+        'args' => array(
+          array(
+            'name' => 'tid',
+            'optional' => TRUE,
+            'source' => array('path' => 0),
+            'type' => 'int',
+            'description' => 'The tid of the category to get',
+						'default value' => 0,
+          ),
+        ),
+        'access callback' => 'slg_json_category_access',
+        'access arguments' => array('view'),
+        'access arguments append' => TRUE,
+      ),
+    ),
+  'slg_json_company' => array(
+    'retrieve' => array(
+      'file' => array('type' => 'inc', 'module' => 'slg_json'),
+      'callback' => 'slg_json_company_retrieve',
+      'args' => array(
+        array(
+          'name' => 'nid',
+          'optional' => FALSE,
+          'source' => array('path' => 0),
+          'type' => 'int',
+          'description' => 'The nid of the node to get',
+        ),
+      ),
+      'access callback' => 'slg_json_company_access',
+      'access arguments' => array('view'),
+      'access arguments append' => TRUE,
+    ),
+	),
+	'slg_json_event' => array(
+    'retrieve' => array(
+      'file' => array('type' => 'inc', 'module' => 'slg_json'),
+      'callback' => 'slg_json_event_retrieve',
+      'args' => array(
+        array(
+          'name' => 'nid',
+          'optional' => FALSE,
+          'source' => array('path' => 0),
+          'type' => 'int',
+          'description' => 'The nid of the node to get',
+        ),
+      ),
+      'access callback' => 'slg_json_company_access',
+      'access arguments' => array('view'),
+      'access arguments append' => TRUE,
+    ),
+	),
+	'slg_json_location' => array(
+    'retrieve' => array(
+      'file' => array('type' => 'inc', 'module' => 'slg_json'),
+      'callback' => 'slg_json_location_retrieve',
+      'args' => array(
+        array(
+          'name' => 'radius',
+          'optional' => FALSE,
+          'source' => array('param' => 'radius'),
+          'type' => 'int',
+          'description' => 'The radius',
+        ),
+				array(
+          'name' => 'category',
+          'optional' => FALSE,
+          'source' => array('param' => 'category'),
+          'type' => 'int',
+          'description' => 'The category',
+        ),
+				array(
+          'name' => 'latitude',
+          'optional' => FALSE,
+          'source' => array('param' => 'lat'),
+          'type' => 'string',
+          'description' => 'The category',
+        ),
+				array(
+          'name' => 'longitude',
+          'optional' => FALSE,
+          'source' => array('param' => 'long'),
+          'type' => 'string',
+          'description' => 'The category',
+        ),
+      ),
+      'access callback' => 'slg_json_location_access',
+      'access arguments' => array('view'),
+      'access arguments append' => TRUE,
+    ),
+	),
+  'slg_json_jobs' => array(
+    'retrieve' => array(
+      'file' => array('type' => 'inc', 'module' => 'slg_json'),
+      'callback' => 'slg_json_jobs_retrieve',
+      'args' => array(
+        array(
+          'name' => 'nid',
+          'optional' => FALSE,
+          'source' => array('path' => 0),
+          'type' => 'int',
+          'description' => 'The nid of the node to get',
+        ),
+      ),
+      'access callback' => 'slg_json_jobs_access',
+      'access arguments' => array('view'),
+      'access arguments append' => TRUE,
+    ),
+  ),
+  );
+}
